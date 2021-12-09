@@ -12,29 +12,67 @@ let arr = [
       "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
     // img: (img.src = "./Drone.jpg"),
   },
+  {
+    Name: "Drone",
+    decription:
+      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
+    // img: (img.src = "./Drone.jpg"),
+  },
+  {
+    Name: "Drone",
+    decription:
+      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
+    // img: (img.src = "./Drone.jpg"),
+  },
+  {
+    Name: "Drone",
+    decription:
+      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
+    // img: (img.src = "./Drone.jpg"),
+  },
+  {
+    Name: "Drone",
+    decription:
+      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
+    // img: (img.src = "./Drone.jpg"),
+  },
+  {
+    Name: "Drone",
+    decription:
+      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
+    // img: (img.src = "./Drone.jpg"),
+  },
 ];
-const divbox = $("<div></div>");
 
-// const imgcard = $("<img></img>");
-// imgcard.img.src = "./golf.jpg";
-// divbox.append(imgcard);
+arr.forEach((element) => {
+  const divbox = $("<div></div>");
 
-const h2 = $("<h2></h2>");
-h2.text(arr[0].Name);
-divbox.append(h2);
+  // const imgcard = $("<img></img>");
+  // imgcard.img.src = "./golf.jpg";
+  // divbox.append(imgcard);
 
-const addtocourt = $("<button>add to court</button>");
-divbox.append(addtocourt);
+  const h2 = $("<h2></h2>");
+  h2.text(element.Name);
+  divbox.append(h2);
 
-const discr = $("<p></p>");
-discr.text(arr[0].decription);
-divbox.append(discr);
+  const addtocourt = $("<button>add to court</button>");
+  divbox.append(addtocourt);
 
-divbox.css({
-  width: "180px",
-  height: "250px",
-  background: "red",
+  const discr = $("<p></p>");
+  discr.text(element.decription);
+  divbox.append(discr);
+
+  divbox.css({
+    width: "180px",
+    height: "250px",
+    background: "red",
+    overflow: "hidden",
+    margin: "10px 10px",
+    padding: "10px",
+    display: "grid",
+  });
+  const body = $("body");
+  body.append(divbox);
 });
-const body = $("body");
-body.append(divbox);
+
 // divbox.append(arr[0].img);
