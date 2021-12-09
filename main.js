@@ -45,7 +45,13 @@ let arr = [
 ];
 
 arr.forEach((element) => {
+  const maindiv = $("<div></div>");
+
   const divbox = $("<div></div>");
+  maindiv.append(divbox);
+  maindiv.css({
+    display: "grid",
+  });
 
   // const imgcard = $("<img></img>");
   // imgcard.img.src = "./golf.jpg";
@@ -65,13 +71,15 @@ arr.forEach((element) => {
   divbox.css({
     width: "180px",
     height: "250px",
-    background: "red",
+    background: "#595845",
     overflow: "hidden",
+    color: "white",
     margin: "10px 10px",
     padding: "10px",
-    display: "grid",
+    display: "inline-block",
   });
   const body = $("body");
+
   body.append(divbox);
 });
 
