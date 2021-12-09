@@ -1,0 +1,30 @@
+body {
+  background-color: #bdbfb8;
+  margin: 0px;
+}
+.listitem {
+  display: flex;
+  background-color: #566073;
+  height: 70px;
+}
+ul {
+  margin: 0% 0%;
+  /* height: 50px; */
+}
+li {
+  list-style-type: none;
+  margin: 0% 0%;
+  float: left;
+}
+li a {
+  display: block;
+  text-decoration: none;
+  padding: 25px 30px;
+  color: #f0f2f0;
+  /* background-color: #566073; */
+}
+li a:hover {
+  background-color: #8c8c7b;
+  height: 100%;
+  margin: 0px;
+}
