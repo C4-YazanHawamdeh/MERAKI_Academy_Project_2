@@ -28,3 +28,13 @@ li a:hover {
   height: 100%;
   margin: 0px;
 }
+#test {
+  background-color: green;
+  border: 2px solid black;
+}
+#imgg {
+  width: 70px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
