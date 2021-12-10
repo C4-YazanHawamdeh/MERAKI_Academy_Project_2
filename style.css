@@ -38,3 +38,16 @@ li a:hover {
   justify-content: center;
   align-items: center;
 }
+
+select {
+  height: 60px;
+  width: 100px;
+
+  background-color: aqua;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.inp {
+  margin-top: 20px;
+  margin-left: 1000px;
+}

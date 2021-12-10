@@ -131,7 +131,8 @@ arr.forEach((element) => {
   });
   fav.on("click", () => {
     // localStorage.setItem("name", element);
-    localStorage.setItem("price", element.price);
+    arrfav.push(localStorage.setItem("Name", element.Name));
+    console.log(arrfav);
     localStorage.setItem("decription", element.decription);
     // arrfav.push({
     //   name: localStorage.getItem("name"),
@@ -175,6 +176,4 @@ type.on("change", (e, ind) => {
       el.hide();
     }
   });
-  
 });
-
