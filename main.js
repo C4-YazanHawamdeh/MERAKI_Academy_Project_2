@@ -68,12 +68,14 @@ arrfav = [];
 let total = 0;
 let favid = $("#favid");
 let type = $("#type");
+let arrdiv = [];
 const maindiv = $("<div></div>");
 
 arr.forEach((element) => {
   maindiv.css({
     display: "grid",
   });
+
   const divbox = $("<div></div>");
   maindiv.append(divbox);
   body.append(maindiv);
@@ -137,7 +139,8 @@ arr.forEach((element) => {
     //   des: localStorage.getItem("decription"),
     // });
   });
-  type.on("click", () => {});
+  arrdiv.push(divbox);
+
   const discr = $("<p></p>");
   discr.text(element.decription);
   divbox.append(discr);
@@ -161,3 +164,17 @@ arr.forEach((element) => {
     p.show();
   });
 });
+
+type.on("change", (e, ind) => {
+  arrdiv.forEach((eshow, ind) => {
+    eshow.show();
+  });
+  arrdiv.forEach((el, ind) => {
+    console.log(arr[ind]["type"]);
+    if (e.target.value !== arr[ind]["type"]) {
+      el.hide();
+    }
+  });
+  
+});
+
