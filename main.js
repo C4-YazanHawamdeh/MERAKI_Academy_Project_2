@@ -10,57 +10,57 @@ let arr = [
     src: "golf.jpg",
   },
   {
-    Name: "Drone",
+    Name: "Driver's License",
     type: "drama",
 
     price: 8,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "A classic teenage fetish object, the American driver’s license has long symbolized freedom and mobility in a nation whose design assumes car travel and whose vastness rivals continents",
+    src: "drive.jpg",
   },
   {
-    Name: "Drone",
+    Name: "Glass",
     type: "drama",
 
     price: 5,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "Pause and look around: you will see that you are surrounded by glass. It reflects and refracts light through your windows; it encircles a glowing filament above you; it's in a mirror hanging on the wall",
+    src: "glass.jpg",
   },
   {
-    Name: "ooo",
+    Name: "waste",
     type: "history",
 
     price: 9,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "Though we try to imagine otherwise, waste is every object, plus time. Whatever else an object is, it's also waste-or was, or will be",
+    src: "waste.jpg",
   },
   {
-    Name: "Drone",
+    Name: "hood",
     type: "drama",
 
     price: 2,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "We all wear hoods: the Grim Reaper, Red Riding Hood, torturers, executioners and the executed, athletes, laborers, anarchists,",
+    src: "hood.jpg",
   },
   {
-    Name: "Drone",
+    Name: "bread",
     type: "history",
     price: 3,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "Bread is an object that is always in process of becoming something else: flower to grain, grain to dough, dough to loaf, loaf to crumb",
+    src: "bread.jpg",
   },
   {
-    Name: "Drone",
+    Name: "hair",
     type: "comedy",
 
     price: 10,
     decription:
-      "Drones are in the newspaper, on the TV screen, swarming through the networks, and soon, we're told, they'll be delivering our shopping",
-    src: "golf.jpg",
+      "Hair, a primary marker of our mammalian nature, is an extraordinary indicator of economic and social standing, political orientation",
+    src: "hair.jpg",
   },
 ];
 const body = $("body");
@@ -110,6 +110,14 @@ arr.forEach((element) => {
     background: "red",
     fontWeight: "700",
     height: "40px",
+    border: "2px solid black",
+  });
+  fav.css({
+    background: "blue",
+    fontWeight: "700",
+    height: "40px",
+    border: "2px solid black",
+    margin: "0px 5px",
   });
   divbox.append(addtocourt);
   divbox.append(remove);
@@ -133,15 +141,11 @@ arr.forEach((element) => {
   });
   fav.on("click", () => {
     // localStorage.setItem("name", element);
-    arrfav.push(localStorage.getItem("Name", element.Name));
-    console.log(arrfav);
-    localStorage.setItem("decription", element.decription);
-    // arrfav.push({
-    //   name: localStorage.getItem("name"),
-    //   price: localStorage.getItem("price"),
-    //   des: localStorage.getItem("decription"),
-    // });
-  });
+      localStorage.getItem("name", ee.Name);
+     localStorage.getItem("price", ee.price);
+     localStorage.getItem("decription", ee.decription);
+    });
+   
   arrdiv.push(divbox);
 
   const discr = $("<p></p>");
