@@ -28,7 +28,7 @@ let arr = [
     src: "golf.jpg",
   },
   {
-    Name: "Drone",
+    Name: "ooo",
     type: "history",
 
     price: 9,
@@ -94,7 +94,7 @@ arr.forEach((element) => {
   price.text("price : " + element.price + "$");
   divbox.append(price);
 
-  const addtocourt = $("<button>add to court</button>");
+  const addtocourt = $("<button>add to cart</button>");
   addtocourt.attr("id", "test");
   const remove = $("<button>remove</button>");
   const fav = $("<button>fav</button>");
@@ -104,10 +104,12 @@ arr.forEach((element) => {
   addtocourt.css({
     margin: "0px 5px",
     fontWeight: "700",
+    height: "40px",
   });
   remove.css({
     background: "red",
     fontWeight: "700",
+    height: "40px",
   });
   divbox.append(addtocourt);
   divbox.append(remove);
@@ -131,7 +133,7 @@ arr.forEach((element) => {
   });
   fav.on("click", () => {
     // localStorage.setItem("name", element);
-    arrfav.push(localStorage.setItem("Name", element.Name));
+    arrfav.push(localStorage.getItem("Name", element.Name));
     console.log(arrfav);
     localStorage.setItem("decription", element.decription);
     // arrfav.push({
@@ -152,8 +154,8 @@ arr.forEach((element) => {
     background: "#595845",
     overflow: "hidden",
     color: "white",
-    margin: "10px 10px",
-    padding: "10px",
+    margin: "20px 40px",
+    padding: "30px",
     display: "inline-block",
   });
 

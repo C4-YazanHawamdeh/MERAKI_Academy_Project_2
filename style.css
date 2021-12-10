@@ -3,6 +3,7 @@ body {
   margin: 0px;
 }
 .listitem {
+  padding: 20px;
   display: flex;
   background-color: #566073;
   height: 70px;
@@ -50,4 +51,7 @@ select {
 .inp {
   margin-top: 20px;
   margin-left: 1000px;
+}
+#type1 {
+  padding: 20px;
 }
