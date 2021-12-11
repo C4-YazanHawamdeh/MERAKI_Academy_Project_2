@@ -86,6 +86,7 @@ arr.forEach((element) => {
   imgcard.css({});
   divbox.append(imgcard);
   imgcard.attr("id", "imgg");
+  imgcard.attr("id", "imgg");
 
   const h2 = $("<h2></h2>");
   h2.text(element.Name);
@@ -165,7 +166,7 @@ arr.forEach((element) => {
     overflow: "hidden",
     color: "white",
     margin: "20px 40px",
-    padding: "30px",
+    padding: "20px",
     display: "inline-block",
   });
 
@@ -200,7 +201,7 @@ favid.on("click", () => {
     /////////////////////////////////////////////////
     const maintomain = $("<div class='mainDiv'></div>");
     const divbox1 = $("<div></div>");
-
+    const imgcard = $("<img src=ent.img/>");
     const h2 = $("<h2></h2>");
     const p = $("<p></p>");
     const addtocourt = $("<button>add to cart</button>");
@@ -238,14 +239,21 @@ favid.on("click", () => {
       margin: "0px 5px",
     });
     /////////////////////////////////////////////////
-    h2.text("yazan");
+
+    divbox1.append(imgcard);
+
+    h2.text(ent.name);
     h2.appendTo(divbox1);
     price.text("price : " + ent.price + "$");
+    p.text(ent.decription);
+
     divbox1.append(addtocourt);
     divbox1.append(remove);
     divbox1.append(fav);
 
     divbox1.append(price);
+    divbox1.append(p);
+
     body.append(divbox1);
     divbox1.show();
     console.log(ent.img);

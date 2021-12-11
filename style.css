@@ -3,7 +3,6 @@ body {
   margin: 0px;
 }
 .listitem {
-  padding: 20px;
   display: flex;
   background-color: #566073;
   height: 70px;
