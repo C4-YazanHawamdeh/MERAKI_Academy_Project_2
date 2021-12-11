@@ -99,8 +99,8 @@ arr.forEach((element) => {
 
   const addtocourt = $("<button>add to cart</button>");
   addtocourt.attr("id", "test");
-  const remove = $("<button>remove</button>");
-  const fav = $("<button>fav</button>");
+  //const remove = $("<button>remove</button>");
+  const fav = $("<button><i class='fas fa-star'>favourite</i></button>");
   const inp = $("#tot");
 
   addtocourt.css({
@@ -108,21 +108,22 @@ arr.forEach((element) => {
     fontWeight: "700",
     height: "40px",
   });
-  remove.css({
-    background: "red",
-    fontWeight: "700",
-    height: "40px",
-    border: "2px solid black",
-  });
+  //   remove.css({
+  //     background: "red",
+  //     fontWeight: "700",
+  //     height: "40px",
+  //     border: "2px solid black",
+  //   });
   fav.css({
     background: "blue",
+    width: "80px",
     fontWeight: "700",
     height: "40px",
     border: "2px solid black",
     margin: "0px 5px",
   });
   divbox.append(addtocourt);
-  divbox.append(remove);
+  //   divbox.append(remove);
   divbox.append(fav);
 
   addtocourt.on("click", () => {
@@ -203,7 +204,6 @@ favid.on("click", () => {
     const addtocourt = $("<button>add to cart</button>");
     addtocourt.attr("id", "test");
     const remove = $("<button>remove</button>");
-    const fav = $("<button>fav</button>");
     const price = $("<h3></h3>");
 
     divbox1.css({
@@ -226,24 +226,9 @@ favid.on("click", () => {
       fontWeight: "700",
       height: "40px",
       border: "2px solid black",
-    });
-    fav.css({
-      background: "blue",
-      fontWeight: "700",
-      height: "40px",
-      border: "2px solid black",
-      margin: "0px 5px",
+      width: "80px",
     });
 
-    remove.on("click", () => {
-      ent.hide();
-
-      // total = total - parseInt(localStorage.getItem("totalprice"));
-      // inp.val(total);
-      // localStorage.removeItem("totalprice", element.price);
-      // localStorage.removeItem("bookname ", element.Name);
-      // localStorage.removeItem("description ", element.decription);
-    });
     /////////////////////////////////////////////////
 
     divbox1.append(imgcard);
@@ -255,14 +240,26 @@ favid.on("click", () => {
 
     divbox1.append(addtocourt);
     divbox1.append(remove);
-    divbox1.append(fav);
 
     divbox1.append(price);
     divbox1.append(p);
+    divstor.push(divbox1); ////////
+
     body.append(divbox1);
     divbox1.show();
-    divstor.push(divbox1); ////////
 
     console.log(ent.img);
   });
+});
+remove.on("click", (e) => {
+  divstor.forEach((element) => {
+    element.hide();
+console.log(e.target.val)
+  });
+
+  // total = total - parseInt(localStorage.getItem("totalprice"));
+  // inp.val(total);
+  // localStorage.removeItem("totalprice", element.price);
+  // localStorage.removeItem("bookname ", element.Name);
+  // localStorage.removeItem("description ", element.decription);
 });
