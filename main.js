@@ -140,14 +140,24 @@ arr.forEach((element) => {
     localStorage.removeItem("description ", element.decription);
   });
   fav.on("click", () => {
-    // localStorage.setItem("name", element);
-      localStorage.getItem("name", ee.Name);
-     localStorage.getItem("price", ee.price);
-     localStorage.getItem("decription", ee.decription);
+    localStorage.setItem("name", element.Name);
+    localStorage.setItem("price", element.price);
+    localStorage.setItem("decription", element.decription);
+    arrfav.push({
+      Name: localStorage.getItem("name"),
+      price: localStorage.getItem("price"),
+      decription: localStorage.getItem("decription"),
     });
-   
+    // arrfav.push(localStorage.getItem("price"));
+    // arrfav.push(localStorage.getItem("decription"));
+  });
+
   arrdiv.push(divbox);
 
+  arrfav.forEach((ent) => {
+    if (ent) {
+    }
+  });
   const discr = $("<p></p>");
   discr.text(element.decription);
   divbox.append(discr);
@@ -166,9 +176,14 @@ arr.forEach((element) => {
   body.append(divbox);
 
   favid.on("click", () => {
-    divbox.hide();
-    // console.log();
-    p.show();
+    // divbox.hide();
+    // // console.log();
+    // p.show();
+    arrdiv.forEach((efav, ind) => {
+      // console.log(arr[ind]["type"]);
+ efav.hide();
+ 
+    });
   });
 });
 
@@ -177,7 +192,7 @@ type.on("change", (e, ind) => {
     eshow.show();
   });
   arrdiv.forEach((el, ind) => {
-    console.log(arr[ind]["type"]);
+    // console.log(arr[ind]["type"]);
     if (e.target.value !== arr[ind]["type"]) {
       el.hide();
     }
