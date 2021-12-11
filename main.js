@@ -182,6 +182,16 @@ arr.forEach((element) => {
     });
   });
   /////
+//   imgcard.on("change", (e, ind) => {
+    
+//       if (e.target.value !== arr[ind]["type"]) {
+//         el.hide();
+//       }
+//     });
+//     arrdiv.forEach((eshow, ind) => {
+//         eshow.show();
+//       });
+  
 });
 //
 
