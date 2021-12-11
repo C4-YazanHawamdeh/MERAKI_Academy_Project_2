@@ -71,6 +71,7 @@ let type = $("#type");
 let arrdiv = [];
 const maindiv = $("<div class='mainDiv'></div>");
 let test = [];
+let divstor = [];
 ///////////////////////////////////////////////////////////
 
 body.append(maindiv);
@@ -133,13 +134,7 @@ arr.forEach((element) => {
     total = total + parseInt(localStorage.getItem("totalprice"));
     inp.val(total);
   });
-  remove.on("click", () => {
-    total = total - parseInt(localStorage.getItem("totalprice"));
-    inp.val(total);
-    localStorage.removeItem("totalprice", element.price);
-    localStorage.removeItem("bookname ", element.Name);
-    localStorage.removeItem("description ", element.decription);
-  });
+
   fav.on("click", () => {
     // localStorage.setItem("name", element.Name);
     // localStorage.setItem("price", element.price);
@@ -196,6 +191,7 @@ favid.on("click", () => {
   storge = JSON.parse(localStorage.getItem("fav"));
   //test.push(storge);
   // console.log(storge);
+
   storge.forEach((ent) => {
     //   console.log(h33.text(ent.name));
     /////////////////////////////////////////////////
@@ -238,6 +234,16 @@ favid.on("click", () => {
       border: "2px solid black",
       margin: "0px 5px",
     });
+
+    remove.on("click", () => {
+      ent.hide();
+
+      // total = total - parseInt(localStorage.getItem("totalprice"));
+      // inp.val(total);
+      // localStorage.removeItem("totalprice", element.price);
+      // localStorage.removeItem("bookname ", element.Name);
+      // localStorage.removeItem("description ", element.decription);
+    });
     /////////////////////////////////////////////////
 
     divbox1.append(imgcard);
@@ -253,9 +259,10 @@ favid.on("click", () => {
 
     divbox1.append(price);
     divbox1.append(p);
-
     body.append(divbox1);
     divbox1.show();
+    divstor.push(divbox1); ////////
+
     console.log(ent.img);
   });
 });
