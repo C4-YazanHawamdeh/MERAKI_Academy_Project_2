@@ -55,3 +55,8 @@ select {
 #type1 {
   padding: 20px;
 }
+.mainDiv {
+  background-color: brown;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}

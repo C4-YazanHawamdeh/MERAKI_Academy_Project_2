@@ -69,16 +69,17 @@ let total = 0;
 let favid = $("#favid");
 let type = $("#type");
 let arrdiv = [];
-const maindiv = $("<div></div>");
+const maindiv = $("<div class='mainDiv'></div>");
+let test = [];
+///////////////////////////////////////////////////////////
 
+body.append(maindiv);
 arr.forEach((element) => {
   maindiv.css({
     display: "grid",
   });
 
   const divbox = $("<div></div>");
-  maindiv.append(divbox);
-  body.append(maindiv);
   const imgcard = $(`<img/>`);
 
   imgcard.attr("src", element.src);
@@ -98,7 +99,6 @@ arr.forEach((element) => {
   addtocourt.attr("id", "test");
   const remove = $("<button>remove</button>");
   const fav = $("<button>fav</button>");
-  const p = $("<p>yazan</p>");
   const inp = $("#tot");
 
   addtocourt.css({
@@ -140,24 +140,20 @@ arr.forEach((element) => {
     localStorage.removeItem("description ", element.decription);
   });
   fav.on("click", () => {
-    localStorage.setItem("name", element.Name);
-    localStorage.setItem("price", element.price);
-    localStorage.setItem("decription", element.decription);
+    // localStorage.setItem("name", element.Name);
+    // localStorage.setItem("price", element.price);
+    // localStorage.setItem("decription", element.decription);
     arrfav.push({
-      Name: localStorage.getItem("name"),
-      price: localStorage.getItem("price"),
-      decription: localStorage.getItem("decription"),
+      img: element.src,
+      name: element.Name,
+      price: element.price,
+      decription: element.decription,
     });
-    // arrfav.push(localStorage.getItem("price"));
-    // arrfav.push(localStorage.getItem("decription"));
+    localStorage.setItem("fav", JSON.stringify(arrfav));
   });
 
   arrdiv.push(divbox);
 
-  arrfav.forEach((ent) => {
-    if (ent) {
-    }
-  });
   const discr = $("<p></p>");
   discr.text(element.decription);
   divbox.append(discr);
@@ -175,26 +171,83 @@ arr.forEach((element) => {
 
   body.append(divbox);
 
-  favid.on("click", () => {
-    // divbox.hide();
-    // // console.log();
-    // p.show();
-    arrdiv.forEach((efav, ind) => {
+  maindiv.append(divbox);
+  //});
+
+  type.on("change", (e, ind) => {
+    arrdiv.forEach((eshow, ind) => {
+      eshow.show();
+    });
+    arrdiv.forEach((el, ind) => {
       // console.log(arr[ind]["type"]);
- efav.hide();
- 
+      if (e.target.value !== arr[ind]["type"]) {
+        el.hide();
+      }
     });
   });
+  /////
 });
+//
 
-type.on("change", (e, ind) => {
-  arrdiv.forEach((eshow, ind) => {
-    eshow.show();
-  });
-  arrdiv.forEach((el, ind) => {
-    // console.log(arr[ind]["type"]);
-    if (e.target.value !== arr[ind]["type"]) {
-      el.hide();
-    }
+favid.on("click", () => {
+  maindiv.hide();
+
+  storge = JSON.parse(localStorage.getItem("fav"));
+  //test.push(storge);
+  // console.log(storge);
+  storge.forEach((ent) => {
+    //   console.log(h33.text(ent.name));
+    /////////////////////////////////////////////////
+    const maintomain = $("<div class='mainDiv'></div>");
+    const divbox1 = $("<div></div>");
+
+    const h2 = $("<h2></h2>");
+    const p = $("<p></p>");
+    const addtocourt = $("<button>add to cart</button>");
+    addtocourt.attr("id", "test");
+    const remove = $("<button>remove</button>");
+    const fav = $("<button>fav</button>");
+    const price = $("<h3></h3>");
+
+    divbox1.css({
+      width: "220px",
+      height: "350px",
+      background: "#595845",
+      overflow: "hidden",
+      color: "white",
+      margin: "20px 40px",
+      padding: "30px",
+      display: "inline-block",
+    });
+    addtocourt.css({
+      margin: "0px 5px",
+      fontWeight: "700",
+      height: "40px",
+    });
+    remove.css({
+      background: "red",
+      fontWeight: "700",
+      height: "40px",
+      border: "2px solid black",
+    });
+    fav.css({
+      background: "blue",
+      fontWeight: "700",
+      height: "40px",
+      border: "2px solid black",
+      margin: "0px 5px",
+    });
+    /////////////////////////////////////////////////
+    h2.text("yazan");
+    h2.appendTo(divbox1);
+    price.text("price : " + ent.price + "$");
+    divbox1.append(addtocourt);
+    divbox1.append(remove);
+    divbox1.append(fav);
+
+    divbox1.append(price);
+    body.append(divbox1);
+    divbox1.show();
+    console.log(ent.img);
   });
 });
