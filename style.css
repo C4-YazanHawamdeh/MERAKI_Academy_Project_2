@@ -32,8 +32,8 @@ li a:hover {
   background-color: green;
   border: 2px solid black;
 }
-#imgg {
-  width: 70px;
+.imgg {
+  width: 100px;
   display: grid;
   justify-content: center;
   align-items: center;

@@ -86,8 +86,7 @@ arr.forEach((element) => {
   imgcard.attr("src", element.src);
   imgcard.css({});
   divbox.append(imgcard);
-  imgcard.attr("id", "imgg");
-  imgcard.attr("id", "imgg");
+  imgcard.attr("class", "imgg");
 
   const h2 = $("<h2></h2>");
   h2.text(element.Name);
@@ -198,7 +197,7 @@ favid.on("click", () => {
     /////////////////////////////////////////////////
     const maintomain = $("<div class='mainDiv'></div>");
     const divbox1 = $("<div></div>");
-    const imgcard = $("<img src=ent.img/>");
+    const imgcard = $(`<img class="imgg" src='${ent.img}'/>`);
     const h2 = $("<h2></h2>");
     const p = $("<p></p>");
     const addtocourt = $("<button>add to cart</button>");
@@ -231,6 +230,26 @@ favid.on("click", () => {
 
     /////////////////////////////////////////////////
 
+    //   console.log(e.target.parentElement);
+    //   e.target.parentElement.hide();
+    divstor.forEach((ee) => {
+      //   element.hide();
+      remove.on("click", (e) => {
+        if (e.target.parentElement) {
+          ee.hide();
+        }
+
+        console.log(ee);
+        console.log(e.target.parentElement);
+      });
+
+      // total = total - parseInt(localStorage.getItem("totalprice"));
+      // inp.val(total);
+      // localStorage.removeItem("totalprice", element.price);
+      // localStorage.removeItem("bookname ", element.Name);
+      // localStorage.removeItem("description ", element.decription);
+    });
+
     divbox1.append(imgcard);
 
     h2.text(ent.name);
@@ -250,16 +269,4 @@ favid.on("click", () => {
 
     console.log(ent.img);
   });
-});
-remove.on("click", (e) => {
-  divstor.forEach((element) => {
-    element.hide();
-console.log(e.target.val)
-  });
-
-  // total = total - parseInt(localStorage.getItem("totalprice"));
-  // inp.val(total);
-  // localStorage.removeItem("totalprice", element.price);
-  // localStorage.removeItem("bookname ", element.Name);
-  // localStorage.removeItem("description ", element.decription);
 });
