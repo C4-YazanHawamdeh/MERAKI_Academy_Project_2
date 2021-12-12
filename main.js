@@ -6,7 +6,7 @@ let arr = [
     price: 5,
     type: "history",
     decription:
-      "Harry Brown explores the composition, history, kinetic life, and the long deterioration of golf balls, which as it turns out may outlive their hitters by a thousand years, in places far beyond our reach. Golf balls embody our efforts to impose our will on the land",
+      "Harry Brown explores the composition, history, kinetic life, and the long deterioration of golf balls",
     src: "golf.jpg",
   },
   {
@@ -24,7 +24,7 @@ let arr = [
 
     price: 5,
     decription:
-      "Pause and look around: you will see that you are surrounded by glass. It reflects and refracts light through your windows; it encircles a glowing filament above you; it's in a mirror hanging on the wall",
+      "Pause and look around: you will see that you are surrounded by glass. It reflects and refracts light through your windows",
     src: "glass.jpg",
   },
   {
@@ -156,7 +156,7 @@ arr.forEach((element) => {
 
   divbox.css({
     width: "220px",
-    height: "350px",
+    height: "400px",
     background: "#595845",
     overflow: "hidden",
     color: "white",
@@ -169,7 +169,6 @@ arr.forEach((element) => {
 
   maindiv.append(divbox);
   //});
-
   type.on("change", (e, ind) => {
     arrdiv.forEach((eshow, ind) => {
       eshow.show();
@@ -181,17 +180,13 @@ arr.forEach((element) => {
       }
     });
   });
-  /////
-//   imgcard.on("change", (e, ind) => {
-    
-//       if (e.target.value !== arr[ind]["type"]) {
-//         el.hide();
-//       }
-//     });
-//     arrdiv.forEach((eshow, ind) => {
-//         eshow.show();
-//       });
-  
+  imgcard.on("click", (e) => {
+    arrdiv.forEach((el, ind) => {
+      console.log(e.target);
+        divbox.hide();
+      
+    });
+  });
 });
 //
 
@@ -217,12 +212,12 @@ favid.on("click", () => {
 
     divbox1.css({
       width: "220px",
-      height: "350px",
+      height: "400px",
       background: "#595845",
       overflow: "hidden",
       color: "white",
       margin: "20px 40px",
-      padding: "30px",
+      padding: "10px 20px",
       display: "inline-block",
     });
     addtocourt.css({
@@ -231,7 +226,8 @@ favid.on("click", () => {
       height: "40px",
     });
     remove.css({
-      background: "red",
+      background: "black",
+      color: "white",
       fontWeight: "700",
       height: "40px",
       border: "2px solid black",
@@ -242,23 +238,8 @@ favid.on("click", () => {
 
     //   console.log(e.target.parentElement);
     //   e.target.parentElement.hide();
-    divstor.forEach((ee) => {
-      //   element.hide();
-      remove.on("click", (e) => {
-        if (e.target.parentElement) {
-          ee.hide();
-        }
 
-        console.log(ee);
-        console.log(e.target.parentElement);
-      });
-
-      // total = total - parseInt(localStorage.getItem("totalprice"));
-      // inp.val(total);
-      // localStorage.removeItem("totalprice", element.price);
-      // localStorage.removeItem("bookname ", element.Name);
-      // localStorage.removeItem("description ", element.decription);
-    });
+    //   element.hide();
 
     divbox1.append(imgcard);
 
@@ -278,5 +259,14 @@ favid.on("click", () => {
     divbox1.show();
 
     console.log(ent.img);
+    remove.on("click", () => {
+      //   console.log(storge);
+      console.log(ent);
+      for (let i = 0; i < storge.length; i++) {
+        storge.splice(i, 1);
+        console.log(storge.splice(i, 1));
+      }
+      divbox1.hide();
+    });
   });
 });
