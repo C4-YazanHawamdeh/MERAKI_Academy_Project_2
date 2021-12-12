@@ -203,9 +203,8 @@ arr.forEach((element) => {
   });
 });
 //
-// home.on("click", () => {
-//   maindiv.show();
-// });
+home.on("click", () => {
+});
 
 favid.on("click", () => {
   maindiv.hide();
