@@ -40,11 +40,11 @@ li a:hover {
 }
 
 select {
-  height: 60px;
+  height: 40px;
   width: 100px;
 
-  background-color: aqua;
-  font-size: 15px;
+  background-color: blueviolet;
+  font-size: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .inp {
@@ -52,7 +52,14 @@ select {
   margin-left: 1000px;
 }
 #type1 {
-  padding: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 900;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .mainDiv {
   display: grid;
@@ -64,3 +71,23 @@ select {
   padding: 100px;
   background-color: cadetblue;
 }
+.star {
+  color: yellow;
+  font-size: 15px;
+}
+.starr {
+  background-color: black;
+}
+
+.eyes {
+  font-size: 20px;
+  font-weight: 900;
+  color: #595845;
+  padding-top: 25px;
+  padding-bottom: 23px;
+
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: black;
+}
+

@@ -82,6 +82,8 @@ arr.forEach((element) => {
   });
 
   const divbox = $("<div></div>");
+
+  
   const imgcard = $(`<img/>`);
 
   imgcard.attr("src", element.src);
@@ -106,7 +108,9 @@ arr.forEach((element) => {
   const addtocourt = $("<button>add to cart</button>");
   addtocourt.attr("id", "test");
   //const remove = $("<button>remove</button>");
-  const fav = $("<button><i class='fas fa-star'>favourite</i></button>");
+  const fav = $(
+    "<button class='starr'><i class='fas fa-star star'></i></button>"
+  );
   const inp = $("#tot");
 
   addtocourt.css({
@@ -121,7 +125,7 @@ arr.forEach((element) => {
   //     border: "2px solid black",
   //   });
   fav.css({
-    background: "blue",
+    background: "black",
     width: "80px",
     fontWeight: "700",
     height: "40px",
@@ -203,8 +207,6 @@ arr.forEach((element) => {
   });
 });
 //
-home.on("click", () => {
-});
 
 favid.on("click", () => {
   maindiv.hide();
@@ -228,7 +230,7 @@ favid.on("click", () => {
 
     divbox1.css({
       width: "220px",
-      height: "400px",
+      height: "600px",
       background: "#595845",
       overflow: "hidden",
       color: "white",
