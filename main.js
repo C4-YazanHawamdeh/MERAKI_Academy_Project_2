@@ -83,7 +83,6 @@ arr.forEach((element) => {
 
   const divbox = $("<div></div>");
 
-  
   const imgcard = $(`<img/>`);
 
   imgcard.attr("src", element.src);
@@ -191,20 +190,49 @@ arr.forEach((element) => {
       }
     });
   });
+  //   imgcard.on("click", (e) => {
+  //     arrdiv.forEach((el, ind) => {
+  //       console.log(e.target);
+  //       el.hide();
+  //       imgcard.css({
+  //         width: "100px",
+  //       });
+  //       divbox.attr("id", "pressimgcss");
+  //       const discr = $("<p></p>");
+  //       discr.text(element.decription);
+  //       divbox.append(discr);
+  //       divbox.show();
+  //     });
+  //   });
+  ///////////////////////////////test
   imgcard.on("click", (e) => {
     arrdiv.forEach((el, ind) => {
       console.log(e.target);
       el.hide();
       imgcard.css({
-        width: "100px",
+        width: "400px",
       });
-      divbox.attr("id", "pressimgcss");
-      const discr = $("<p></p>");
-      discr.text(element.decription);
-      divbox.append(discr);
-      divbox.show();
     });
-  });
+    maindiv.append(imgcard);
+    const newdiv = $("<div></div>");
+
+    const discr = $("<p></p>");
+    const h1 = $("<h1></h1>");
+    newdiv.append(h1);
+
+    newdiv.append(discr);
+
+    discr.css({
+      margin: "0px 20px",
+      width: "300px",
+    });
+    h1.css({
+      margin: "0px 20px",
+    });
+    discr.text(element.decription);
+    h1.text(element.Name);
+    maindiv.append(newdiv);
+  }); ////////////////////////////test
 });
 //
 
