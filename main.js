@@ -150,9 +150,9 @@ arr.forEach((element) => {
 
   arrdiv.push(divbox);
 
-  const discr = $("<p></p>");
-  discr.text(element.decription);
-  divbox.append(discr);
+  //   const discr = $("<p></p>");
+  //   discr.text(element.decription);
+  //   divbox.append(discr);
 
   divbox.css({
     width: "220px",
@@ -183,8 +183,12 @@ arr.forEach((element) => {
   imgcard.on("click", (e) => {
     arrdiv.forEach((el, ind) => {
       console.log(e.target);
-        divbox.hide();
-      
+      el.hide();
+     divbox.attr("id","pressimgcss")
+      const discr = $("<p></p>");
+      discr.text(element.decription);
+      divbox.append(discr);
+      divbox.show();
     });
   });
 });
@@ -259,13 +263,19 @@ favid.on("click", () => {
     divbox1.show();
 
     console.log(ent.img);
-    remove.on("click", () => {
-      //   console.log(storge);
+    remove.on("click", (e) => {
       console.log(ent);
-      for (let i = 0; i < storge.length; i++) {
-        storge.splice(i, 1);
-        console.log(storge.splice(i, 1));
+      console.log("E: ", e.target);
+      for (let i = 0; i < arrfav.length; i++) {
+        if (i == 0) {
+          arrfav.shift();
+        } else {
+          arrfav.splice(i, 1);
+        }
+        localStorage.setItem("fav", JSON.stringify(arrfav));
       }
+      console.log(storge);
+
       divbox1.hide();
     });
   });
