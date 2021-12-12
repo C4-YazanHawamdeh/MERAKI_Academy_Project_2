@@ -67,6 +67,7 @@ const body = $("body");
 arrfav = [];
 let total = 0;
 let favid = $("#favid");
+let home = $("#home");
 let type = $("#type");
 let arrdiv = [];
 const maindiv = $("<div class='mainDiv'></div>");
@@ -91,10 +92,16 @@ arr.forEach((element) => {
   const h2 = $("<h2></h2>");
   h2.text(element.Name);
   divbox.append(h2);
+  h2.css({
+    margin: "5px 0px ",
+  });
 
   const price = $("<h3></h3>");
   price.text("price : " + element.price + "$");
   divbox.append(price);
+  price.css({
+    margin: "10px 10px ",
+  });
 
   const addtocourt = $("<button>add to cart</button>");
   addtocourt.attr("id", "test");
@@ -156,11 +163,11 @@ arr.forEach((element) => {
 
   divbox.css({
     width: "220px",
-    height: "400px",
+    height: "430px",
     background: "#595845",
     overflow: "hidden",
     color: "white",
-    margin: "20px 40px",
+    margin: "20px 100px",
     padding: "20px",
     display: "inline-block",
   });
@@ -184,7 +191,10 @@ arr.forEach((element) => {
     arrdiv.forEach((el, ind) => {
       console.log(e.target);
       el.hide();
-     divbox.attr("id","pressimgcss")
+      imgcard.css({
+        width: "100px",
+      });
+      divbox.attr("id", "pressimgcss");
       const discr = $("<p></p>");
       discr.text(element.decription);
       divbox.append(discr);
@@ -193,6 +203,9 @@ arr.forEach((element) => {
   });
 });
 //
+// home.on("click", () => {
+//   maindiv.show();
+// });
 
 favid.on("click", () => {
   maindiv.hide();
