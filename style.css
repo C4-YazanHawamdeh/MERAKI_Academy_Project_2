@@ -163,3 +163,28 @@ select {
   color: aqua;
   text-decoration: none;
 }
+#signUpButton {
+  margin: 30px;
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  border: 2px solid whitesmoke;
+  border-radius: 10%;
+}
+.centerh1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.iconsize {
+  font-size: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  color: cadetblue;
+}

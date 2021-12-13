@@ -180,7 +180,11 @@ arr.forEach((element) => {
 
   inputText = $("#username");
   inputPass = $("#password");
+  userNameReg = $("#usernamereg");
+  passwordReg = $("#passwordreg");
   loginButton = $("#logButton");
+  signUpButton = $("#signUpButton");
+  passwordConfirm = $("#passwordconfirm");
 
   loginButton.on("click", () => {
     users.forEach((element) => {
@@ -197,6 +201,19 @@ arr.forEach((element) => {
       }
     });
   });
+
+  // signUpButton.on("click", () => {
+  //   userNameReg2 = userNameReg.val();
+  //   passwordReg2 = passwordReg.val();
+  //   console.log(userNameReg2);
+  //   console.log(passwordReg2);
+  //   if (passwordReg2 == passwordConfirm.val()) {
+  //     users.push({ username: userNameReg2, password: passwordReg2 });
+  //   } else {
+  //     worningH1 = $("<h1>the password not match</h1>");
+  //     body.append(worningH1);
+  //   }
+  // });
 
   type.on("change", (e, ind) => {
     arrDiv.forEach((eShow, ind) => {
@@ -237,7 +254,19 @@ arr.forEach((element) => {
     mainDiv.append(newdiv);
   });
 });
-//
+/////foreach end
+signUpButton.on("click", () => {
+  userNameReg2 = userNameReg.val();
+  passwordReg2 = passwordReg.val();
+  console.log(userNameReg2);
+  console.log(passwordReg2);
+  if (passwordReg2 == passwordConfirm.val()) {
+    users.push({ username: userNameReg2, password: passwordReg2 });
+  } else {
+    worningH1 = $("<h1 class='centerh1'>the password not match</h1>");
+    reg.append(worningH1);
+  }
+});
 
 favId.on("click", () => {
   mainDiv.hide();
