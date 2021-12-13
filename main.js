@@ -77,8 +77,20 @@ let cart = [];
 let divStorage = [];
 let test = $("#test");
 const login = $("#login");
-test.hide();
+const signupLink = $("#signUpNow");
+const loginLink = $("#loginNow");
+const reg = $("#register");
 
+test.hide();
+reg.hide();
+signupLink.on("click", () => {
+  login.hide();
+  reg.show();
+});
+loginLink.on("click", () => {
+  reg.hide();
+  login.show();
+});
 // body.append(mainDiv);
 arr.forEach((element) => {
   mainDiv.css({

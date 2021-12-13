@@ -20,7 +20,6 @@
     <title>Document</title>
   </head>
   <body>
-
     <div id="test">
       <div class="listitem">
         <ul>
@@ -35,7 +34,7 @@
           <li class="inp">Total Price<input id="tot" /></li>
         </ul>
       </div>
-   
+
       <div id="type1">
         Category<select id="type">
           <option value="history">history</option>
@@ -44,17 +43,27 @@
         </select>
       </div>
     </div>
-   
-    <div class="cen"> 
+
+    <div class="cen">
       <div id="login">
-        <h1>Login</h1>
-        username <input id="username"/><br>
-        password <input id="password"/>
+        <h1 id="h1login">Login</h1>
+        username <input id="username" /><br />
+        password <input id="password" />
         <button id="logButton">login</button>
-        
-            </div>
+        <a id="signUpNow" href="#">Signup</a>
+      </div>
+
+      <div id="register">
+        <h1 id="h1login">register</h1>
+        username <input id="username" /><br />
+        password <input id="password" /><br /> confirm password
+        <input id="password" />
+
+        <button id="logButton">signup</button>
+        <a id="loginNow" href="#">login</a>
+      </div>
     </div>
-   
+
     <script src="main.js"></script>
   </body>
 </html>
