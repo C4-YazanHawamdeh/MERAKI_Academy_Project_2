@@ -18,6 +18,8 @@ li {
 }
 li a {
   display: block;
+  font-size: 20px;
+  font-weight: 900;
   text-decoration: none;
   padding: 25px 30px;
   color: #f0f2f0;
@@ -32,7 +34,7 @@ li a:hover {
   background-color: #566073;
   border: 2px solid black;
 }
-.imgg {
+.imgCard {
   width: 220px;
   display: flex;
   justify-content: center;
@@ -82,12 +84,36 @@ select {
 .eyes {
   font-size: 20px;
   font-weight: 900;
-  color: #595845;
+  color: black;
   padding-top: 25px;
   padding-bottom: 23px;
 
   padding-left: 30px;
   padding-right: 30px;
-  background-color: black;
 }
-
+#login {
+  color: ivory;
+  font-weight: 900;
+  background-image: url("login2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: ivory 3px solid;
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 10%;
+  display: grid;
+  grid-template-columns: auto;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+}
+.cen {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+#logButton {
+  margin: 30px 0px;
+  width: 100px;
+  height: 40px;
+  background-color: green;
+}

@@ -20,26 +20,41 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="listitem">
-      <ul>
-        <li class="eyes">
-          B<i class="fas fa-grin-hearts"></i
-          ><i class="fas fa-grin-hearts"></i>KS
-        </li>
-        <li id="home">
-          <a href="#" onClick="window.location.reload()">Home</a>
-        </li>
-        <li id="favid"><a href="#">favorite</a></li>
-        <li class="inp">Total Price<input id="tot" /></li>
-      </ul>
+
+    <div id="test">
+      <div class="listitem">
+        <ul>
+          <li class="eyes">
+            B<i class="fas fa-grin-hearts"></i
+            ><i class="fas fa-grin-hearts"></i>KS
+          </li>
+          <li id="home">
+            <a href="#" onClick="window.location.reload()">Home</a>
+          </li>
+          <li id="favid"><a href="#">favorite</a></li>
+          <li class="inp">Total Price<input id="tot" /></li>
+        </ul>
+      </div>
+   
+      <div id="type1">
+        Category<select id="type">
+          <option value="history">history</option>
+          <option value="drama">drama</option>
+          <option value="comedy">comedy</option>
+        </select>
+      </div>
     </div>
-    <div id="type1">
-      Category<select id="type">
-        <option value="history">history</option>
-        <option value="drama">drama</option>
-        <option value="comedy">comedy</option>
-      </select>
+   
+    <div class="cen"> 
+      <div id="login">
+        <h1>Login</h1>
+        username <input id="username"/><br>
+        password <input id="password"/>
+        <button id="logButton">login</button>
+        
+            </div>
     </div>
+   
     <script src="main.js"></script>
   </body>
 </html>

@@ -1,5 +1,3 @@
-console.log("yazan");
-
 let arr = [
   {
     Name: "golf ball",
@@ -63,66 +61,66 @@ let arr = [
     src: "hair.jpg",
   },
 ];
+let users = [
+  { username: "yazan", password: "123" },
+  { username: "ahmad", password: "321" },
+];
 const body = $("body");
-arrfav = [];
+arrFav = [];
 let total = 0;
-let favid = $("#favid");
+let favId = $("#favid");
 let home = $("#home");
 let type = $("#type");
-let arrdiv = [];
-const maindiv = $("<div class='mainDiv'></div>");
-let test = [];
-let divstor = [];
-///////////////////////////////////////////////////////////
+let arrDiv = [];
+const mainDiv = $("<div class='mainDiv'></div>");
+let cart = [];
+let divStorage = [];
+let test = $("#test");
+const login = $("#login");
+test.hide();
 
-body.append(maindiv);
+// body.append(mainDiv);
 arr.forEach((element) => {
-  maindiv.css({
+  mainDiv.css({
     display: "grid",
   });
 
-  const divbox = $("<div></div>");
+  const divBox = $("<div></div>");
 
-  const imgcard = $(`<img/>`);
+  const imgCard = $(`<img/>`);
 
-  imgcard.attr("src", element.src);
-  imgcard.css({});
-  divbox.append(imgcard);
-  imgcard.attr("class", "imgg");
+  imgCard.attr("src", element.src);
+  imgCard.css({});
+  divBox.append(imgCard);
+  imgCard.attr("class", "imgCard");
 
   const h2 = $("<h2></h2>");
   h2.text(element.Name);
-  divbox.append(h2);
+  divBox.append(h2);
   h2.css({
     margin: "5px 0px ",
   });
 
   const price = $("<h3></h3>");
   price.text("price : " + element.price + "$");
-  divbox.append(price);
+  divBox.append(price);
   price.css({
     margin: "10px 10px ",
   });
 
-  const addtocourt = $("<button>add to cart</button>");
-  addtocourt.attr("id", "test");
-  //const remove = $("<button>remove</button>");
+  const addToCart = $("<button>add to cart</button>");
+  addToCart.attr("id", "cart");
   const fav = $(
     "<button class='starr'><i class='fas fa-star star'></i></button>"
   );
   const inp = $("#tot");
 
-  addtocourt.css({
+  addToCart.css({
     margin: "0px 5px",
     fontWeight: "700",
     height: "40px",
   });
-  //   remove.css({
-  //     background: "red",
-  //     fontWeight: "700",
-  //     height: "40px",
-  //     border: "2px solid black",
-  //   });
+
   fav.css({
     background: "black",
     width: "80px",
@@ -131,11 +129,10 @@ arr.forEach((element) => {
     border: "2px solid black",
     margin: "0px 5px",
   });
-  divbox.append(addtocourt);
-  //   divbox.append(remove);
-  divbox.append(fav);
+  divBox.append(addToCart);
+  divBox.append(fav);
 
-  addtocourt.on("click", () => {
+  addToCart.on("click", () => {
     localStorage.setItem("totalprice", element.price);
 
     localStorage.setItem("bookname ", element.Name);
@@ -146,25 +143,19 @@ arr.forEach((element) => {
   });
 
   fav.on("click", () => {
-    // localStorage.setItem("name", element.Name);
-    // localStorage.setItem("price", element.price);
-    // localStorage.setItem("decription", element.decription);
-    arrfav.push({
+    arrFav.push({
       img: element.src,
       name: element.Name,
       price: element.price,
       decription: element.decription,
     });
-    localStorage.setItem("fav", JSON.stringify(arrfav));
+    localStorage.setItem("fav", JSON.stringify(arrFav));
   });
 
-  arrdiv.push(divbox);
+  arrDiv.push(divBox);
+  mainDiv.append(divBox);
 
-  //   const discr = $("<p></p>");
-  //   discr.text(element.decription);
-  //   divbox.append(discr);
-
-  divbox.css({
+  divBox.css({
     width: "220px",
     height: "430px",
     background: "#595845",
@@ -175,88 +166,84 @@ arr.forEach((element) => {
     display: "inline-block",
   });
 
-  body.append(divbox);
+  inputText = $("#username");
+  inputPass = $("#password");
+  loginButton = $("#logButton");
 
-  maindiv.append(divbox);
-  //});
-  type.on("change", (e, ind) => {
-    arrdiv.forEach((eshow, ind) => {
-      eshow.show();
+  loginButton.on("click", () => {
+    users.forEach((element) => {
+      if (
+        inputText.val() == element.username &&
+        inputPass.val() == element.password
+      ) {
+        login.hide();
+
+        test.show();
+        body.append(mainDiv);
+      } else {
+        console.log("enter a valid username or password");
+      }
     });
-    arrdiv.forEach((el, ind) => {
-      // console.log(arr[ind]["type"]);
+  });
+
+  type.on("change", (e, ind) => {
+    arrDiv.forEach((eShow, ind) => {
+      eShow.show();
+    });
+    arrDiv.forEach((el, ind) => {
       if (e.target.value !== arr[ind]["type"]) {
         el.hide();
       }
     });
   });
-  //   imgcard.on("click", (e) => {
-  //     arrdiv.forEach((el, ind) => {
-  //       console.log(e.target);
-  //       el.hide();
-  //       imgcard.css({
-  //         width: "100px",
-  //       });
-  //       divbox.attr("id", "pressimgcss");
-  //       const discr = $("<p></p>");
-  //       discr.text(element.decription);
-  //       divbox.append(discr);
-  //       divbox.show();
-  //     });
-  //   });
-  ///////////////////////////////test
-  imgcard.on("click", (e) => {
-    arrdiv.forEach((el, ind) => {
-      console.log(e.target);
+
+  imgCard.on("click", (e) => {
+    arrDiv.forEach((el, ind) => {
       el.hide();
-      imgcard.css({
+      imgCard.css({
         width: "400px",
       });
     });
-    maindiv.append(imgcard);
+    mainDiv.append(imgCard);
     const newdiv = $("<div></div>");
 
-    const discr = $("<p></p>");
+    const discription = $("<p></p>");
     const h1 = $("<h1></h1>");
     newdiv.append(h1);
 
-    newdiv.append(discr);
+    newdiv.append(discription);
 
-    discr.css({
+    discription.css({
       margin: "0px 20px",
       width: "300px",
     });
     h1.css({
       margin: "0px 20px",
     });
-    discr.text(element.decription);
+    discription.text(element.decription);
     h1.text(element.Name);
-    maindiv.append(newdiv);
-  }); ////////////////////////////test
+    mainDiv.append(newdiv);
+  });
 });
 //
 
-favid.on("click", () => {
-  maindiv.hide();
+favId.on("click", () => {
+  mainDiv.hide();
 
   storge = JSON.parse(localStorage.getItem("fav"));
-  //test.push(storge);
-  // console.log(storge);
 
   storge.forEach((ent) => {
-    //   console.log(h33.text(ent.name));
-    /////////////////////////////////////////////////
     const maintomain = $("<div class='mainDiv'></div>");
-    const divbox1 = $("<div></div>");
-    const imgcard = $(`<img class="imgg" src='${ent.img}'/>`);
+    const divBoxFav = $("<div></div>");
+    const imgCard = $(`<img class="imgCard" src='${ent.img}'/>`);
     const h2 = $("<h2></h2>");
     const p = $("<p></p>");
-    const addtocourt = $("<button>add to cart</button>");
-    addtocourt.attr("id", "test");
+    const addToCart = $("<button>add to cart</button>");
+    addToCart.attr("id", "cart");
     const remove = $("<button>remove</button>");
     const price = $("<h3></h3>");
 
-    divbox1.css({
+    divBoxFav.css({
       width: "220px",
       height: "600px",
       background: "#595845",
@@ -266,7 +253,7 @@ favid.on("click", () => {
       padding: "10px 20px",
       display: "inline-block",
     });
-    addtocourt.css({
+    addToCart.css({
       margin: "0px 5px",
       fontWeight: "700",
       height: "40px",
@@ -280,45 +267,34 @@ favid.on("click", () => {
       width: "80px",
     });
 
-    /////////////////////////////////////////////////
-
-    //   console.log(e.target.parentElement);
-    //   e.target.parentElement.hide();
-
-    //   element.hide();
-
-    divbox1.append(imgcard);
+    divBoxFav.append(imgCard);
 
     h2.text(ent.name);
-    h2.appendTo(divbox1);
+    h2.appendTo(divBoxFav);
     price.text("price : " + ent.price + "$");
     p.text(ent.decription);
 
-    divbox1.append(addtocourt);
-    divbox1.append(remove);
+    divBoxFav.append(addToCart);
+    divBoxFav.append(remove);
 
-    divbox1.append(price);
-    divbox1.append(p);
-    divstor.push(divbox1); ////////
+    divBoxFav.append(price);
+    divBoxFav.append(p);
+    divStorage.push(divBoxFav);
 
-    body.append(divbox1);
-    divbox1.show();
+    body.append(divBoxFav);
+    divBoxFav.show();
 
-    console.log(ent.img);
     remove.on("click", (e) => {
-      console.log(ent);
-      console.log("E: ", e.target);
-      for (let i = 0; i < arrfav.length; i++) {
+      for (let i = 0; i < arrFav.length; i++) {
         if (i == 0) {
-          arrfav.shift();
+          arrFav.shift();
         } else {
-          arrfav.splice(i, 1);
+          arrFav.splice(i, 1);
         }
-        localStorage.setItem("fav", JSON.stringify(arrfav));
+        localStorage.setItem("fav", JSON.stringify(arrFav));
       }
-      console.log(storge);
 
-      divbox1.hide();
+      divBoxFav.hide();
     });
   });
 });
