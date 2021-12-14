@@ -60,6 +60,51 @@ let arr = [
       "Hair, a primary marker of our mammalian nature, is an extraordinary indicator of economic and social standing, political orientation",
     src: "hair.jpg",
   },
+  {
+    Name: "Atomic Habits",
+    type: "history",
+
+    price: 10,
+    decription:
+      "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear, one of the world's leading experts on habit formation",
+    src: "AtomicHabits.jpg",
+  },
+  {
+    Name: "It Ends with Us: A Novel",
+    type: "comedy",
+
+    price: 5,
+    decription:
+      "Lily hasn’t always had it easy, but that’s never stopped her from working hard for the life she wants",
+    src: "itend.webp",
+  },
+  {
+    Name: "life skilles",
+    type: "drama",
+
+    price: 10,
+    decription:
+      "The teenage years are an exciting yet ever-changing period of your life. New challenges and tasks seem to pop up almost daily—not to mention all the transitions your body is going through",
+    src: "lifeskilles.jpg",
+  },
+  {
+    Name: "Interesting Stories For Curious People",
+    type: "comedy",
+
+    price: 6,
+    decription:
+      "A Collection of Fascinating Stories About History, Science, Pop Culture and Just About Anything Else You Can Think of ",
+    src: "Interesting.jpg",
+  },
+  {
+    Name: "The Storyteller",
+    type: "comedy",
+
+    price: 20,
+    decription:
+      "Having entertained the idea for years, and even offered a few questionable opportunities (It's a piece of cake! Just do 4 hours of interviews, find someone else to write it,",
+    src: "thestor.jpg",
+  },
 ];
 let users = [
   { username: "yazan", password: "123" },
@@ -80,6 +125,8 @@ const login = $("#login");
 const signupLink = $("#signUpNow");
 const loginLink = $("#loginNow");
 const reg = $("#register");
+const home1 = $("#home");
+const mainDivFav = $("<div class='mainDiv'></div>");
 
 test.hide();
 reg.hide();
@@ -173,7 +220,7 @@ arr.forEach((element) => {
     background: "#595845",
     overflow: "hidden",
     color: "white",
-    margin: "20px 100px",
+    margin: "20px 50px",
     padding: "20px",
     display: "inline-block",
   });
@@ -254,6 +301,7 @@ arr.forEach((element) => {
     mainDiv.append(newdiv);
   });
 });
+
 /////foreach end
 signUpButton.on("click", () => {
   userNameReg2 = userNameReg.val();
@@ -335,6 +383,10 @@ favId.on("click", () => {
         localStorage.setItem("fav", JSON.stringify(arrFav));
       }
 
+      divBoxFav.hide();
+    });
+    home1.on("click", () => {
+      mainDiv.show();
       divBoxFav.hide();
     });
   });
