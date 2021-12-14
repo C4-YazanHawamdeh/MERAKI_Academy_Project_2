@@ -1,10 +1,10 @@
 body {
-  background-color: #bdbfb8;
+  background-color: #EB717F;
   margin: 0px;
 }
 .listitem {
   display: flex;
-  background-color: #566073;
+  background-color: #EB717F;
   height: 70px;
 }
 ul {
@@ -27,7 +27,7 @@ li a {
 }
 li a:hover {
   background-color: #8c8c7b;
-  height: 100%;
+  height: 20px;
   margin: 0px;
 }
 /* #test {
@@ -36,6 +36,7 @@ li a:hover {
 } */
 .imgCard {
   width: 220px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +46,7 @@ select {
   height: 40px;
   width: 100px;
 
-  background-color: blueviolet;
+  background-color:#FFB363 ;
   font-size: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -184,7 +185,21 @@ select {
 
 .iconsize {
   font-size: 30px;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+
   color: cadetblue;
+}
+.basket {
+  font-size: 30px;
+}
+#burshacing {
+  height: 20px;
+  display: flex;
+  float: right;
+  margin-right: 50px;
+
+}
+#divBox {
+  border: 3px solid black;
+  box-shadow: 10px 10px 5px grey;
+
 }

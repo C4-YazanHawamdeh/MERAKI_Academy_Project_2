@@ -112,6 +112,7 @@ let users = [
 ];
 const body = $("body");
 arrFav = [];
+arrBurshacing = [];
 let total = 0;
 let favId = $("#favid");
 let home = $("#home");
@@ -127,6 +128,7 @@ const loginLink = $("#loginNow");
 const reg = $("#register");
 const home1 = $("#home");
 const mainDivFav = $("<div class='mainDiv'></div>");
+let burshacing = $("#burshacing");
 
 test.hide();
 reg.hide();
@@ -210,6 +212,15 @@ arr.forEach((element) => {
     });
     localStorage.setItem("fav", JSON.stringify(arrFav));
   });
+  addToCart.on("click", () => {
+    arrBurshacing.push({
+      img: element.src,
+      name: element.Name,
+      price: element.price,
+      decription: element.decription,
+    });
+    localStorage.setItem("bur", JSON.stringify(arrBurshacing));
+  });
 
   arrDiv.push(divBox);
   mainDiv.append(divBox);
@@ -217,13 +228,14 @@ arr.forEach((element) => {
   divBox.css({
     width: "220px",
     height: "430px",
-    background: "#595845",
+    background: "#FFD930",
     overflow: "hidden",
     color: "white",
     margin: "20px 50px",
     padding: "20px",
     display: "inline-block",
   });
+  divBox.attr("id", "divBox");
 
   inputText = $("#username");
   inputPass = $("#password");
@@ -248,19 +260,6 @@ arr.forEach((element) => {
       }
     });
   });
-
-  // signUpButton.on("click", () => {
-  //   userNameReg2 = userNameReg.val();
-  //   passwordReg2 = passwordReg.val();
-  //   console.log(userNameReg2);
-  //   console.log(passwordReg2);
-  //   if (passwordReg2 == passwordConfirm.val()) {
-  //     users.push({ username: userNameReg2, password: passwordReg2 });
-  //   } else {
-  //     worningH1 = $("<h1>the password not match</h1>");
-  //     body.append(worningH1);
-  //   }
-  // });
 
   type.on("change", (e, ind) => {
     arrDiv.forEach((eShow, ind) => {
@@ -342,6 +341,8 @@ favId.on("click", () => {
       padding: "10px 20px",
       display: "inline-block",
     });
+    divBoxFav.attr("id", "divBox");
+
     addToCart.css({
       margin: "0px 5px",
       fontWeight: "700",
@@ -388,6 +389,76 @@ favId.on("click", () => {
     home1.on("click", () => {
       mainDiv.show();
       divBoxFav.hide();
+    });
+  });
+
+  ///////////////////////////////////////////////////////addtocart
+});
+////////////////////////////////ggggg
+burshacing.on("click", () => {
+  mainDiv.hide();
+  storge1 = JSON.parse(localStorage.getItem("bur"));
+
+  storge1.forEach((ele) => {
+    const maintomain = $("<div class='mainDiv'></div>");
+    const divBoxBur = $("<div></div>");
+    const imgCardBur = $(`<img class="imgCard" src='${ele.img}'/>`);
+    const h2Bur = $("<h2></h2>");
+    const pBur = $("<p></p>");
+    const removeBur = $("<button>remove</button>");
+    const priceBur = $("<h3></h3>");
+
+    divBoxBur.css({
+      width: "220px",
+      height: "600px",
+      background: "#595845",
+      overflow: "hidden",
+      color: "white",
+      margin: "20px 40px",
+      padding: "10px 20px",
+      display: "inline-block",
+    });
+
+    removeBur.css({
+      background: "black",
+      color: "white",
+      fontWeight: "700",
+      height: "40px",
+      border: "2px solid black",
+      width: "80px",
+    });
+
+    divBoxBur.append(imgCardBur);
+
+    h2Bur.text(ele.name);
+    h2Bur.appendTo(divBoxBur);
+    priceBur.text("price : " + ele.price + "$");
+    pBur.text(ele.decription);
+
+    divBoxBur.append(removeBur);
+
+    divBoxBur.append(priceBur);
+    divBoxBur.append(pBur);
+    divStorage.push(divBoxBur); ///
+
+    body.append(divBoxBur);
+    divBoxBur.show();
+
+    removeBur.on("click", (e) => {
+      for (let i = 0; i < arrBurshacing.length; i++) {
+        if (i == 0) {
+          arrBurshacing.shift();
+        } else {
+          arrBurshacing.splice(i, 1);
+        }
+        localStorage.setItem("bur", JSON.stringify(arrBurshacing));
+      }
+
+      divBoxBur.hide();
+    });
+    home1.on("click", () => {
+      mainDiv.show();
+      divBoxBur.hide();
     });
   });
 });
