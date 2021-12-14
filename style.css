@@ -1,10 +1,10 @@
 body {
-  background-color: #EB717F;
+  background-color: seashell;
   margin: 0px;
 }
 .listitem {
   display: flex;
-  background-color: #EB717F;
+  background-color: #282927;
   height: 70px;
 }
 ul {
@@ -40,13 +40,24 @@ li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: white 3px solid;
+  margin-bottom: 20px;
+  /* //////////////////////////// */
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+.imgCard:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 select {
   height: 40px;
   width: 100px;
 
-  background-color:#FFB363 ;
+  background-color: #ffb363;
   font-size: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -80,6 +91,7 @@ select {
 }
 .starr {
   background-color: black;
+  margin: 20px 0px;
 }
 
 .eyes {
@@ -196,10 +208,20 @@ select {
   display: flex;
   float: right;
   margin-right: 50px;
-
 }
 #divBox {
   border: 3px solid black;
-  box-shadow: 10px 10px 5px grey;
-
+  box-shadow: 5px 5px 5px black;
+  background-color: #5c3530;
+}
+#cart {
+  margin: 15px 0px;
+}
+#favDiv {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+#burDiv {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }

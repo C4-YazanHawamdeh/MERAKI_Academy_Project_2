@@ -1,7 +1,7 @@
 let arr = [
   {
-    Name: "golf ball",
-    price: 5,
+    Name: "Golf Ball",
+    price: "7.99 $",
     type: "history",
     decription:
       "Harry Brown explores the composition, history, kinetic life, and the long deterioration of golf balls",
@@ -11,7 +11,7 @@ let arr = [
     Name: "Driver's License",
     type: "drama",
 
-    price: 8,
+    price: "8.99 $",
     decription:
       "A classic teenage fetish object, the American driver’s license has long symbolized freedom and mobility in a nation whose design assumes car travel and whose vastness rivals continents",
     src: "drive.jpg",
@@ -20,42 +20,42 @@ let arr = [
     Name: "Glass",
     type: "drama",
 
-    price: 5,
+    price: "6.99 $",
     decription:
       "Pause and look around: you will see that you are surrounded by glass. It reflects and refracts light through your windows",
     src: "glass.jpg",
   },
   {
-    Name: "waste",
+    Name: "Waste",
     type: "history",
 
-    price: 9,
+    price: "4.99 $",
     decription:
       "Though we try to imagine otherwise, waste is every object, plus time. Whatever else an object is, it's also waste-or was, or will be",
     src: "waste.jpg",
   },
   {
-    Name: "hood",
+    Name: "Hood",
     type: "drama",
 
-    price: 2,
+    price: "3.99 $",
     decription:
       "We all wear hoods: the Grim Reaper, Red Riding Hood, torturers, executioners and the executed, athletes, laborers, anarchists,",
     src: "hood.jpg",
   },
   {
-    Name: "bread",
+    Name: "Bread",
     type: "history",
-    price: 3,
+    price: "5.99 $",
     decription:
       "Bread is an object that is always in process of becoming something else: flower to grain, grain to dough, dough to loaf, loaf to crumb",
     src: "bread.jpg",
   },
   {
-    Name: "hair",
+    Name: "Hair",
     type: "comedy",
 
-    price: 10,
+    price: "10.99 $",
     decription:
       "Hair, a primary marker of our mammalian nature, is an extraordinary indicator of economic and social standing, political orientation",
     src: "hair.jpg",
@@ -64,34 +64,34 @@ let arr = [
     Name: "Atomic Habits",
     type: "history",
 
-    price: 10,
+    price: "9.99 $",
     decription:
       "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear, one of the world's leading experts on habit formation",
     src: "AtomicHabits.jpg",
   },
   {
-    Name: "It Ends with Us: A Novel",
+    Name: "It Ends with Us",
     type: "comedy",
 
-    price: 5,
+    price: "4.99 $",
     decription:
       "Lily hasn’t always had it easy, but that’s never stopped her from working hard for the life she wants",
     src: "itend.webp",
   },
   {
-    Name: "life skilles",
+    Name: "Life Skilles",
     type: "drama",
 
-    price: 10,
+    price: "5.99 $",
     decription:
       "The teenage years are an exciting yet ever-changing period of your life. New challenges and tasks seem to pop up almost daily—not to mention all the transitions your body is going through",
     src: "lifeskilles.jpg",
   },
   {
-    Name: "Interesting Stories For Curious People",
+    Name: "Interesting Stories",
     type: "comedy",
 
-    price: 6,
+    price: "7.99 $",
     decription:
       "A Collection of Fascinating Stories About History, Science, Pop Culture and Just About Anything Else You Can Think of ",
     src: "Interesting.jpg",
@@ -100,7 +100,7 @@ let arr = [
     Name: "The Storyteller",
     type: "comedy",
 
-    price: 20,
+    price: "11.99 $",
     decription:
       "Having entertained the idea for years, and even offered a few questionable opportunities (It's a piece of cake! Just do 4 hours of interviews, find someone else to write it,",
     src: "thestor.jpg",
@@ -129,6 +129,8 @@ const reg = $("#register");
 const home1 = $("#home");
 const mainDivFav = $("<div class='mainDiv'></div>");
 let burshacing = $("#burshacing");
+const favDiv = $("<div class='favDiv'></div>");
+const burDiv = $("<div class='burDiv'></div>");
 
 test.hide();
 reg.hide();
@@ -163,10 +165,11 @@ arr.forEach((element) => {
   });
 
   const price = $("<h3></h3>");
-  price.text("price : " + element.price + "$");
+  price.text("price : " + element.price);
   divBox.append(price);
   price.css({
     margin: "10px 10px ",
+    margin: "0px",
   });
 
   const addToCart = $("<button>add to cart</button>");
@@ -177,7 +180,6 @@ arr.forEach((element) => {
   const inp = $("#tot");
 
   addToCart.css({
-    margin: "0px 5px",
     fontWeight: "700",
     height: "40px",
   });
@@ -202,16 +204,19 @@ arr.forEach((element) => {
     total = total + parseInt(localStorage.getItem("totalprice"));
     inp.val(total);
   });
+    fav.on("click", () => {
+        arrFav.push({
+          img: element.src,
+          name: element.Name,
+          price: element.price,
+          decription: element.decription,
+        });
+      
 
-  fav.on("click", () => {
-    arrFav.push({
-      img: element.src,
-      name: element.Name,
-      price: element.price,
-      decription: element.decription,
+      localStorage.setItem("fav", JSON.stringify(arrFav));
     });
-    localStorage.setItem("fav", JSON.stringify(arrFav));
-  });
+  
+
   addToCart.on("click", () => {
     arrBurshacing.push({
       img: element.src,
@@ -226,9 +231,8 @@ arr.forEach((element) => {
   mainDiv.append(divBox);
 
   divBox.css({
-    width: "220px",
+    width: "230px",
     height: "430px",
-    background: "#FFD930",
     overflow: "hidden",
     color: "white",
     margin: "20px 50px",
@@ -262,11 +266,15 @@ arr.forEach((element) => {
   });
 
   type.on("change", (e, ind) => {
-    arrDiv.forEach((eShow, ind) => {
-      eShow.show();
-    });
+    // arrDiv.forEach((eShow, ind) => {
+    //   eShow.show();
+    // });
+
     arrDiv.forEach((el, ind) => {
-      if (e.target.value !== arr[ind]["type"]) {
+      console.log(e.target.value);
+      if (e.target.value == "All") {
+        el.show();
+      } else if (e.target.value !== arr[ind]["type"]) {
         el.hide();
       }
     });
@@ -276,7 +284,8 @@ arr.forEach((element) => {
     arrDiv.forEach((el, ind) => {
       el.hide();
       imgCard.css({
-        width: "400px",
+        width: "450px",
+        height: "650px",
       });
     });
     mainDiv.append(imgCard);
@@ -321,7 +330,6 @@ favId.on("click", () => {
   storge = JSON.parse(localStorage.getItem("fav"));
 
   storge.forEach((ent) => {
-    const maintomain = $("<div class='mainDiv'></div>");
     const divBoxFav = $("<div></div>");
     const imgCard = $(`<img class="imgCard" src='${ent.img}'/>`);
     const h2 = $("<h2></h2>");
@@ -356,12 +364,13 @@ favId.on("click", () => {
       border: "2px solid black",
       width: "80px",
     });
+    imgCard.attr("id", "imgCard");
 
     divBoxFav.append(imgCard);
 
     h2.text(ent.name);
     h2.appendTo(divBoxFav);
-    price.text("price : " + ent.price + "$");
+    price.text("price : " + ent.price + " $");
     p.text(ent.decription);
 
     divBoxFav.append(addToCart);
@@ -370,9 +379,11 @@ favId.on("click", () => {
     divBoxFav.append(price);
     divBoxFav.append(p);
     divStorage.push(divBoxFav);
-
-    body.append(divBoxFav);
-    divBoxFav.show();
+    favDiv.append(divBoxFav);
+    body.append(favDiv);
+    burDiv.hide();
+    favDiv.show();
+    favDiv.attr("id", "favDiv");
 
     remove.on("click", (e) => {
       for (let i = 0; i < arrFav.length; i++) {
@@ -388,7 +399,7 @@ favId.on("click", () => {
     });
     home1.on("click", () => {
       mainDiv.show();
-      divBoxFav.hide();
+      favDiv.hide();
     });
   });
 
@@ -441,8 +452,11 @@ burshacing.on("click", () => {
     divBoxBur.append(pBur);
     divStorage.push(divBoxBur); ///
 
-    body.append(divBoxBur);
-    divBoxBur.show();
+    burDiv.append(divBoxBur);
+    body.append(burDiv);
+    favDiv.hide();
+    burDiv.show();
+    burDiv.attr("id", "burDiv");
 
     removeBur.on("click", (e) => {
       for (let i = 0; i < arrBurshacing.length; i++) {
