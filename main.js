@@ -346,21 +346,25 @@ const render = () => {
       body.append(detailes);
     });
   });
-  type.on("change", (e, ind) => {
-    arrDiv.forEach((el, ind) => {
-      if (e.target.value == "All") {
-        el.show();
-      } else if (e.target.value !== arr[ind]["type"]) {
-        el.hide();
-      }
+
+};
+type.on("change", (e, ind) => {
+  arrDiv.forEach((el, ind) => {
+    if (e.target.value == "All") {
+      el.show();
+    } else if (e.target.value !== arr[ind]["type"]) {
+      el.hide();
+    }
+    home1.on("click", () => {
+      el.show();
+    
+      // detailes.html("");
+      // mainDiv.html("");
+      // render();
     });
   });
-};
-home1.on("click", () => {
-  detailes.html("");
-  mainDiv.html("");
-  render();
 });
+
 render();
 
 /////foreach end
@@ -386,6 +390,7 @@ favId.on("click", () => {
   storge = JSON.parse(localStorage.getItem("fav"));
 
   storge.forEach((ent) => {
+    console.log(ent);
     const divBoxFav = $("<div></div>");
     const imgCard = $(`<img class="imgCard" src='${ent.img}'/>`);
     const h2 = $("<h2></h2>");
