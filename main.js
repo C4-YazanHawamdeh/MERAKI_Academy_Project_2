@@ -1,11 +1,14 @@
 let arr = [
   {
     Name: "Golf Ball",
-    price: "7.99 $" ,
+    price: "7.99 $",
     type: "history",
     decription:
       "Harry Brown explores the composition, history, kinetic life, and the long deterioration of golf balls",
-    src: "golf.jpg",
+    src: "./img/golf.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Driver's License",
@@ -14,7 +17,10 @@ let arr = [
     price: "8.99 $",
     decription:
       "A classic teenage fetish object, the American driver’s license has long symbolized freedom and mobility in a nation whose design assumes car travel and whose vastness rivals continents",
-    src: "drive.jpg",
+    src: "./img/drive.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Glass",
@@ -23,7 +29,10 @@ let arr = [
     price: "6.99 $",
     decription:
       "Pause and look around: you will see that you are surrounded by glass. It reflects and refracts light through your windows",
-    src: "glass.jpg",
+    src: "./img/glass.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Waste",
@@ -32,7 +41,10 @@ let arr = [
     price: "4.99 $",
     decription:
       "Though we try to imagine otherwise, waste is every object, plus time. Whatever else an object is, it's also waste-or was, or will be",
-    src: "waste.jpg",
+    src: "./img/waste.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Hood",
@@ -41,7 +53,10 @@ let arr = [
     price: "3.99 $",
     decription:
       "We all wear hoods: the Grim Reaper, Red Riding Hood, torturers, executioners and the executed, athletes, laborers, anarchists,",
-    src: "hood.jpg",
+    src: "./img/hood.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Bread",
@@ -49,7 +64,10 @@ let arr = [
     price: "5.99 $",
     decription:
       "Bread is an object that is always in process of becoming something else: flower to grain, grain to dough, dough to loaf, loaf to crumb",
-    src: "bread.jpg",
+    src: "./img/bread.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Hair",
@@ -58,7 +76,10 @@ let arr = [
     price: "10.99 $",
     decription:
       "Hair, a primary marker of our mammalian nature, is an extraordinary indicator of economic and social standing, political orientation",
-    src: "hair.jpg",
+    src: "./img/hair.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Atomic Habits",
@@ -67,7 +88,10 @@ let arr = [
     price: "9.99 $",
     decription:
       "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear, one of the world's leading experts on habit formation",
-    src: "AtomicHabits.jpg",
+    src: "./img/AtomicHabits.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "It Ends with Us",
@@ -76,7 +100,10 @@ let arr = [
     price: "4.99 $",
     decription:
       "Lily hasn’t always had it easy, but that’s never stopped her from working hard for the life she wants",
-    src: "itend.webp",
+    src: "./img/itend.webp",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Life Skilles",
@@ -85,7 +112,10 @@ let arr = [
     price: "5.99 $",
     decription:
       "The teenage years are an exciting yet ever-changing period of your life. New challenges and tasks seem to pop up almost daily—not to mention all the transitions your body is going through",
-    src: "lifeskilles.jpg",
+    src: "./img/lifeskilles.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "Interesting Stories",
@@ -94,7 +124,10 @@ let arr = [
     price: "7.99 $",
     decription:
       "A Collection of Fascinating Stories About History, Science, Pop Culture and Just About Anything Else You Can Think of ",
-    src: "Interesting.jpg",
+    src: "./img/Interesting.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
   {
     Name: "The Storyteller",
@@ -103,7 +136,10 @@ let arr = [
     price: "11.99 $",
     decription:
       "Having entertained the idea for years, and even offered a few questionable opportunities (It's a piece of cake! Just do 4 hours of interviews, find someone else to write it,",
-    src: "thestor.jpg",
+    src: "./img/thestor.jpg",
+    rate: $(
+      "<div class=rate><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span><span class='fa fa-star checked'></span></div>"
+    ),
   },
 ];
 let users = [
@@ -156,7 +192,6 @@ const render = () => {
     const divBox = $("<div></div>");
 
     const imgCard = $(`<img/>`);
-
     imgCard.attr("src", element.src);
     divBox.append(imgCard);
     imgCard.attr("class", "imgCard");
@@ -268,19 +303,15 @@ const render = () => {
       });
     });
 
-    type.on("change", (e, ind) => {
-      // arrDiv.forEach((eShow, ind) => {
-      //   eShow.show();
-      // });
-      arrDiv.forEach((el, ind) => {
-        console.log(e.target.value);
-        if (e.target.value == "All") {
-          el.show();
-        } else if (e.target.value !== arr[ind]["type"]) {
-          el.hide();
-        }
-      });
-    });
+    // type.on("change", (e, ind) => {
+    //   arrDiv.forEach((el, ind) => {
+    //     if (e.target.value == "All") {
+    //       el.show();
+    //     } else if (e.target.value !== arr[ind]["type"]) {
+    //       el.hide();
+    //     }
+    //   });
+    // });
 
     imgCard.on("click", (e) => {
       const copyImg = $(`<img/>`);
@@ -294,14 +325,15 @@ const render = () => {
         });
       });
       detailes.append(copyImg);
-const divH1Des=$("<div class=d></div>")
+      const divH1Des = $("<div class=d></div>");
       const discription = $("<p></p>");
       const h1 = $("<h1></h1>");
       divH1Des.append(h1);
+      divH1Des.append(element.rate);
 
       divH1Des.append(discription);
-      detailes.append(divH1Des)
-detailes.attr("class","detailes")
+      detailes.append(divH1Des);
+      detailes.attr("class", "detailes");
       discription.css({
         margin: "0px 20px",
         width: "300px",
@@ -312,6 +344,15 @@ detailes.attr("class","detailes")
       discription.text(element.decription);
       h1.text(element.Name);
       body.append(detailes);
+    });
+  });
+  type.on("change", (e, ind) => {
+    arrDiv.forEach((el, ind) => {
+      if (e.target.value == "All") {
+        el.show();
+      } else if (e.target.value !== arr[ind]["type"]) {
+        el.hide();
+      }
     });
   });
 };

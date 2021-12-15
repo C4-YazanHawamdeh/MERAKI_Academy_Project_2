@@ -113,7 +113,7 @@ select {
 #login {
   color: ivory;
   font-weight: 900;
-  background-image: url("login2.jpg");
+  background-image: url("./img/login2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border: ivory 3px solid;
@@ -160,7 +160,7 @@ select {
 #register {
   color: ivory;
   font-weight: 900;
-  background-image: url("login2.jpg");
+  background-image: url("./img/login2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border: ivory 3px solid;
@@ -255,4 +255,10 @@ ul {
   display: flex;
   -ms-flex-align: end;
   -ms-flex-align: end;
+}
+.rate{
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
 }
