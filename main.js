@@ -1,7 +1,7 @@
 let arr = [
   {
     Name: "Golf Ball",
-    price: "7.99 $",
+    price: "7.99 $" ,
     type: "history",
     decription:
       "Harry Brown explores the composition, history, kinetic life, and the long deterioration of golf balls",
@@ -111,6 +111,7 @@ let users = [
   { username: "ahmad", password: "321" },
 ];
 const body = $("body");
+
 arrFav = [];
 arrBurshacing = [];
 let total = 0;
@@ -146,177 +147,180 @@ loginLink.on("click", () => {
   login.show();
 });
 // body.append(mainDiv);
-const render = ()=>{
-arr.forEach((element) => {
-  mainDiv.css({
-    display: "grid",
-  });
-
-  const divBox = $("<div></div>");
-
-  const imgCard = $(`<img/>`);
-
-  imgCard.attr("src", element.src);
-  divBox.append(imgCard);
-  imgCard.attr("class", "imgCard");
-
-  const h2 = $("<h2></h2>");
-  h2.text(element.Name);
-  divBox.append(h2);
-  h2.css({
-    margin: "5px 0px ",
-  });
-
-  const price = $("<h3></h3>");
-  price.text("price : " + element.price);
-  divBox.append(price);
-  price.css({
-    margin: "10px 10px ",
-    margin: "0px",
-  });
-
-  const addToCart = $("<button>add to cart</button>");
-  addToCart.attr("id", "cart");
-  const fav = $(
-    "<button class='starr'><i class='fas fa-star star'></i></button>"
-  );
-  const inp = $("#tot");
-
-  addToCart.css({
-    fontWeight: "700",
-    height: "40px",
-  });
-
-  fav.css({
-    background: "black",
-    width: "80px",
-    fontWeight: "700",
-    height: "40px",
-    border: "2px solid black",
-    margin: "0px 5px",
-  });
-  divBox.append(addToCart);
-  divBox.append(fav);
-
-  addToCart.on("click", () => {
-    localStorage.setItem("totalprice", element.price);
-
-    localStorage.setItem("bookname ", element.Name);
-    localStorage.setItem("description ", element.decription);
-
-    total = total + parseInt(localStorage.getItem("totalprice"));
-    inp.val(total);
-  });
-  fav.on("click", () => {
-    tf = true;
-    arrFav.push({
-      img: element.src,
-      name: element.Name,
-      price: element.price,
-      decription: element.decription,
+const render = () => {
+  arr.forEach((element) => {
+    mainDiv.css({
+      display: "grid",
     });
-    localStorage.setItem("fav", JSON.stringify(arrFav));
-  });
 
-  addToCart.on("click", () => {
-    arrBurshacing.push({
-      img: element.src,
-      name: element.Name,
-      price: element.price,
-      decription: element.decription,
+    const divBox = $("<div></div>");
+
+    const imgCard = $(`<img/>`);
+
+    imgCard.attr("src", element.src);
+    divBox.append(imgCard);
+    imgCard.attr("class", "imgCard");
+
+    const h2Book = $("<h2></h2>");
+    h2Book.text(element.Name);
+    divBox.append(h2Book);
+    h2Book.css({
+      margin: "5px 0px ",
     });
-    localStorage.setItem("bur", JSON.stringify(arrBurshacing));
-  });
+    h2Book.attr("class", "nameBook");
 
-  arrDiv.push(divBox);
-  mainDiv.append(divBox);
-
-  divBox.css({
-    width: "230px",
-    height: "430px",
-    overflow: "hidden",
-    color: "white",
-    margin: "20px 50px",
-    padding: "20px",
-    display: "inline-block",
-  });
-  divBox.attr("id", "divBox");
-
-  inputText = $("#username");
-  inputPass = $("#password");
-  userNameReg = $("#usernamereg");
-  passwordReg = $("#passwordreg");
-  loginButton = $("#logButton");
-  signUpButton = $("#signUpButton");
-  passwordConfirm = $("#passwordconfirm");
-
-  loginButton.on("click", () => {
-    users.forEach((element) => {
-      if (
-        inputText.val() == element.username &&
-        inputPass.val() == element.password
-      ) {
-        login.hide();
-
-        test.show();
-        body.append(mainDiv);
-      } else {
-        console.log("enter a valid username or password");
-      }
+    const price = $("<h3></h3>");
+    price.text("price : " + element.price);
+    divBox.append(price);
+    price.css({
+      margin: "10px 10px ",
+      margin: "0px",
     });
-  });
 
-  type.on("change", (e, ind) => {
-    // arrDiv.forEach((eShow, ind) => {
-    //   eShow.show();
-    // });
-    arrDiv.forEach((el, ind) => {
-      console.log(e.target.value);
-      if (e.target.value == "All") {
-        el.show();
-      } else if (e.target.value !== arr[ind]["type"]) {
-        el.hide();
-      }
+    const addToCart = $("<button>add to cart</button>");
+    addToCart.attr("id", "cart");
+    const fav = $(
+      "<button class='starr'><i class='fas fa-star star'></i></button>"
+    );
+    const inp = $("#tot");
+
+    addToCart.css({
+      fontWeight: "700",
+      height: "40px",
     });
-  });
 
-  imgCard.on("click", (e) => {
-    const copyImg = $(`<img/>`);
-    copyImg.attr("src", element.src);
-    mainDiv.hide();
-    arrDiv.forEach((el, ind) => {
-      el.hide();
-      copyImg.css({
-        width: "450px",
-        height: "650px",
+    fav.css({
+      background: "black",
+      width: "80px",
+      fontWeight: "700",
+      height: "40px",
+      border: "2px solid black",
+      margin: "0px 5px",
+    });
+    divBox.append(addToCart);
+    divBox.append(fav);
+
+    addToCart.on("click", () => {
+      localStorage.setItem("totalprice", element.price);
+
+      localStorage.setItem("bookname ", element.Name);
+      localStorage.setItem("description ", element.decription);
+
+      total = total + parseInt(localStorage.getItem("totalprice"));
+      inp.text(total);
+    });
+    fav.on("click", () => {
+      tf = true;
+      arrFav.push({
+        img: element.src,
+        name: element.Name,
+        price: element.price,
+        decription: element.decription,
+      });
+      localStorage.setItem("fav", JSON.stringify(arrFav));
+    });
+
+    addToCart.on("click", () => {
+      arrBurshacing.push({
+        img: element.src,
+        name: element.Name,
+        price: element.price,
+        decription: element.decription,
+      });
+      localStorage.setItem("bur", JSON.stringify(arrBurshacing));
+    });
+
+    arrDiv.push(divBox);
+    mainDiv.append(divBox);
+
+    divBox.css({
+      width: "230px",
+      height: "430px",
+      overflow: "hidden",
+      color: "white",
+      margin: "20px 50px",
+      padding: "20px",
+      display: "inline-block",
+    });
+    divBox.attr("id", "divBox");
+
+    inputText = $("#username");
+    inputPass = $("#password");
+    userNameReg = $("#usernamereg");
+    passwordReg = $("#passwordreg");
+    loginButton = $("#logButton");
+    signUpButton = $("#signUpButton");
+    passwordConfirm = $("#passwordconfirm");
+
+    loginButton.on("click", () => {
+      users.forEach((element) => {
+        if (
+          inputText.val() == element.username &&
+          inputPass.val() == element.password
+        ) {
+          login.hide();
+
+          test.show();
+          body.append(mainDiv);
+        } else {
+          console.log("enter a valid username or password");
+        }
       });
     });
-    detailes.append(copyImg);
 
-    const discription = $("<p></p>");
-    const h1 = $("<h1></h1>");
-    detailes.append(h1);
-
-    detailes.append(discription);
-
-    discription.css({
-      margin: "0px 20px",
-      width: "300px",
+    type.on("change", (e, ind) => {
+      // arrDiv.forEach((eShow, ind) => {
+      //   eShow.show();
+      // });
+      arrDiv.forEach((el, ind) => {
+        console.log(e.target.value);
+        if (e.target.value == "All") {
+          el.show();
+        } else if (e.target.value !== arr[ind]["type"]) {
+          el.hide();
+        }
+      });
     });
-    h1.css({
-      margin: "0px 20px",
+
+    imgCard.on("click", (e) => {
+      const copyImg = $(`<img/>`);
+      copyImg.attr("src", element.src);
+      mainDiv.hide();
+      arrDiv.forEach((el, ind) => {
+        el.hide();
+        copyImg.css({
+          width: "450px",
+          height: "650px",
+        });
+      });
+      detailes.append(copyImg);
+const divH1Des=$("<div class=d></div>")
+      const discription = $("<p></p>");
+      const h1 = $("<h1></h1>");
+      divH1Des.append(h1);
+
+      divH1Des.append(discription);
+      detailes.append(divH1Des)
+detailes.attr("class","detailes")
+      discription.css({
+        margin: "0px 20px",
+        width: "300px",
+      });
+      h1.css({
+        margin: "0px 20px",
+      });
+      discription.text(element.decription);
+      h1.text(element.Name);
+      body.append(detailes);
     });
-    discription.text(element.decription);
-    h1.text(element.Name);
-    body.append(detailes);
   });
-  home1.on("click", () => {
-   mainDiv.html("")
-    render()
-    // mainDiv.show();
-  });
-  })}
-  render()
+};
+home1.on("click", () => {
+  detailes.html("");
+  mainDiv.html("");
+  render();
+});
+render();
 
 /////foreach end
 signUpButton.on("click", () => {
@@ -331,7 +335,6 @@ signUpButton.on("click", () => {
     reg.append(worningH1);
   }
 });
-const fun = () => {};
 
 favId.on("click", () => {
   favDiv.html("");

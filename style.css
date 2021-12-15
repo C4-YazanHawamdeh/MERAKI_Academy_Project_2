@@ -15,6 +15,7 @@ li {
   list-style-type: none;
   margin: 0% 0%;
   float: left;
+  font-family: "Kaushan Script", cursive;
 }
 li a {
   display: block;
@@ -62,8 +63,12 @@ select {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .inp {
-  margin-top: 20px;
-  margin-left: 1000px;
+  margin-top: 30px;
+  margin-left: 400px;
+  display: flex;
+  height: 20px;
+
+  width: 200px;
 }
 #type1 {
   padding: 10px;
@@ -71,8 +76,9 @@ select {
   font-weight: 900;
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
+  width: 1100px;
   gap: 10px;
 }
 .mainDiv {
@@ -205,7 +211,7 @@ select {
 }
 #burshacing {
   height: 20px;
-  display: flex;
+  display: block;
   float: right;
   margin-right: 50px;
 }
@@ -213,7 +219,6 @@ select {
   border: 3px solid black;
   box-shadow: 5px 5px 5px black;
   background-color: #5c3530;
-
 }
 #cart {
   margin: 15px 0px;
@@ -225,4 +230,29 @@ select {
 #burDiv {
   display: grid;
   grid-template-columns: auto auto auto auto;
+}
+.detailes {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto auto;
+}
+#tot {
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.nameBook {
+  font-family: "Lobster Two", cursive;
+}
+ul {
+  display: inline;
+}
+.listitem {
+  display: block;
+}
+.start{
+  display: flex;
+  -ms-flex-align: end;
+  -ms-flex-align: end;
 }
