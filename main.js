@@ -127,10 +127,13 @@ const signupLink = $("#signUpNow");
 const loginLink = $("#loginNow");
 const reg = $("#register");
 const home1 = $("#home");
+let tf = true;
 const mainDivFav = $("<div class='mainDiv'></div>");
 let burshacing = $("#burshacing");
-const favDiv = $("<div class='favDiv'></div>");
 const burDiv = $("<div class='burDiv'></div>");
+const favDiv = $("<div class='favDiv'></div>");
+const detailes = $("<div></div>");
+body.append(favDiv);
 
 test.hide();
 reg.hide();
@@ -143,6 +146,7 @@ loginLink.on("click", () => {
   login.show();
 });
 // body.append(mainDiv);
+const render = ()=>{
 arr.forEach((element) => {
   mainDiv.css({
     display: "grid",
@@ -153,7 +157,6 @@ arr.forEach((element) => {
   const imgCard = $(`<img/>`);
 
   imgCard.attr("src", element.src);
-  imgCard.css({});
   divBox.append(imgCard);
   imgCard.attr("class", "imgCard");
 
@@ -204,18 +207,16 @@ arr.forEach((element) => {
     total = total + parseInt(localStorage.getItem("totalprice"));
     inp.val(total);
   });
-    fav.on("click", () => {
-        arrFav.push({
-          img: element.src,
-          name: element.Name,
-          price: element.price,
-          decription: element.decription,
-        });
-      
-
-      localStorage.setItem("fav", JSON.stringify(arrFav));
+  fav.on("click", () => {
+    tf = true;
+    arrFav.push({
+      img: element.src,
+      name: element.Name,
+      price: element.price,
+      decription: element.decription,
     });
-  
+    localStorage.setItem("fav", JSON.stringify(arrFav));
+  });
 
   addToCart.on("click", () => {
     arrBurshacing.push({
@@ -269,7 +270,6 @@ arr.forEach((element) => {
     // arrDiv.forEach((eShow, ind) => {
     //   eShow.show();
     // });
-
     arrDiv.forEach((el, ind) => {
       console.log(e.target.value);
       if (e.target.value == "All") {
@@ -281,21 +281,23 @@ arr.forEach((element) => {
   });
 
   imgCard.on("click", (e) => {
+    const copyImg = $(`<img/>`);
+    copyImg.attr("src", element.src);
+    mainDiv.hide();
     arrDiv.forEach((el, ind) => {
       el.hide();
-      imgCard.css({
+      copyImg.css({
         width: "450px",
         height: "650px",
       });
     });
-    mainDiv.append(imgCard);
-    const newdiv = $("<div></div>");
+    detailes.append(copyImg);
 
     const discription = $("<p></p>");
     const h1 = $("<h1></h1>");
-    newdiv.append(h1);
+    detailes.append(h1);
 
-    newdiv.append(discription);
+    detailes.append(discription);
 
     discription.css({
       margin: "0px 20px",
@@ -306,9 +308,15 @@ arr.forEach((element) => {
     });
     discription.text(element.decription);
     h1.text(element.Name);
-    mainDiv.append(newdiv);
+    body.append(detailes);
   });
-});
+  home1.on("click", () => {
+   mainDiv.html("")
+    render()
+    // mainDiv.show();
+  });
+  })}
+  render()
 
 /////foreach end
 signUpButton.on("click", () => {
@@ -323,8 +331,12 @@ signUpButton.on("click", () => {
     reg.append(worningH1);
   }
 });
+const fun = () => {};
 
 favId.on("click", () => {
+  favDiv.html("");
+  detailes.html("");
+
   mainDiv.hide();
 
   storge = JSON.parse(localStorage.getItem("fav"));
@@ -370,7 +382,7 @@ favId.on("click", () => {
 
     h2.text(ent.name);
     h2.appendTo(divBoxFav);
-    price.text("price : " + ent.price + " $");
+    price.text("price : " + ent.price);
     p.text(ent.decription);
 
     divBoxFav.append(addToCart);
@@ -380,9 +392,8 @@ favId.on("click", () => {
     divBoxFav.append(p);
     divStorage.push(divBoxFav);
     favDiv.append(divBoxFav);
-    body.append(favDiv);
     burDiv.hide();
-    favDiv.show();
+
     favDiv.attr("id", "favDiv");
 
     remove.on("click", (e) => {
@@ -403,10 +414,16 @@ favId.on("click", () => {
     });
   });
 
+  body.append(favDiv);
+  favDiv.show();
   ///////////////////////////////////////////////////////addtocart
 });
+
 ////////////////////////////////ggggg
 burshacing.on("click", () => {
+  burDiv.html("");
+  detailes.html("");
+
   mainDiv.hide();
   storge1 = JSON.parse(localStorage.getItem("bur"));
 
